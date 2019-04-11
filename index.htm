@@ -9,6 +9,12 @@
 		#dataHolder {
 			width: 960px;
 		}
+		#adTable {
+			border-collapse: collapse;	
+		}
+		.ad {
+			border: solid 1px #e2e2e2;
+		}
 	</style>
 </head>
 <body>
@@ -41,14 +47,14 @@
 		d. on mouseover of the entire item row, add a 1px border, you pick the color; on mouseout make it go away
 		e. on mousoever of the "Go" buttons change the text to the value in CTAText2.
 	*/
-	var tableItems = [{"logo":"customimage.png","title":"Title 1", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"customimage.png","title":"Title 2", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"customimage.png","title":"Title 3", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"customimage.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}],
+	var tableItems = [{"logo":"assets/logo_geico.png","title":"Title 1", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Title 2", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title":"Title 3", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}],
 		_Table = '',
 		_TRs = '',
 		_TDs = ''; 
-	  
+
 		$( document ).ready(function() { //insert your custom javascript code here
 		   	//create the header
 			var header = document.createElement('div');
@@ -72,12 +78,20 @@
 				//insert the current ad in the loop into the table. Only show the first 4 first	
 				let thisAd = document.createElement('tr');
 				thisAd.id = adIndex + "_ad";
+				$(thisAd).addClass('ad');
 				$(table).append(thisAd);
 				//insert contents of each ad section in the object we are at in the loop
 				$.each(value, function (section, value) {
 					let thisSection = document.createElement('td');
 					thisSection.id = thisAd.id + "_" + section;
-					thisSection.innerHTML = value;
+					//if section is logo insert the image
+					if (section == 'logo') { 
+						thisSection.innerHTML = "<img src='" + value + "' alt='logo'>";
+					} 
+					//if section 
+					else {
+						thisSection.innerHTML = value;
+					}
 					$(thisAd).append(thisSection);
 				});
 			});
