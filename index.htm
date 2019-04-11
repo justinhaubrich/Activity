@@ -8,12 +8,32 @@
 		/* Add custom CSS here */
 		#dataHolder {
 			width: 960px;
+			margin: auto;
 		}
 		#adTable {
 			border-collapse: collapse;	
+			width: 960px;
+			margin-top:10px;
 		}
 		.ad {
 			border: solid 1px #e2e2e2;
+		}
+		.section {
+			padding-top:10px;
+			padding-bottom:10px;
+			padding-left:20px;
+			padding-right:20px;
+		}
+		.buttonDiv {
+			border-radius:5px;
+			background-color:red;
+			color:white;
+			text-align: center;
+			margin-right:20px;
+			font-size:16pt;
+			font-family:Roboto, sans-serif;
+			font-weight:500;
+			text-transform:uppercase;
 		}
 	</style>
 </head>
@@ -85,10 +105,21 @@
 					let thisSection = document.createElement('td');
 					thisSection.id = thisAd.id + "_" + section;
 					//if section is logo insert the image
+					console.log(section);
 					if (section == 'logo') { 
 						thisSection.innerHTML = "<img src='" + value + "' alt='logo'>";
+						$(thisSection).addClass('section');
 					} 
-					//if section 
+					//if section is CTATEXT place the button div
+					else if (section == 'CTAText') {
+						let buttonDiv = document.createElement('div');
+						buttonDiv.innerHTML = value;
+						$(buttonDiv).addClass('buttonDiv');
+						$(thisSection).append(buttonDiv);
+					}
+					else if (section == 'CTAText2') {
+					}
+
 					else {
 						thisSection.innerHTML = value;
 					}
