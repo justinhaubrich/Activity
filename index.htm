@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
-  <style type="text/css">
-    /*
-    Add custom CSS here
-    */
-    
-  </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>JS Bin</title>
+	<style type="text/css">
+	    /*
+	    Add custom CSS here
+	    */
+	</style>
 </head>
 <body>
-  <div id="dataHolder">
-  
-  </div>
+	<div id="dataHolder">
+	</div>
 </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script type="text/javascript">
-  /*
-  Use JSBin or JSFiddle to make sure everything works - we will copy and paste your code into one them and test the functionality.
-  
-  1. Add a page header object to the page that reads "This is my test Page!" - you can do this directly in the HTML above or use jQuery to inject it
-  
-  2. Using the objects below, loop over the array and generate a table with a row for each item in the array.
-	 Make sure you inject the object into the #dataHolder DOM element above.
-     Within each row add a table cell for each element in the object you parse in the array.
-	 For the customimage.jpg reference, go download a logo from progressive, geico and size them 120x60px.  After the first two just duplicate using the same logos.
-  
-     Make sure each element you add to the page has a class for css styling
-  
-  3. Give each row a 1px border with color #e2e2e2
-  
-  4. Make sure the last column contains a button object (div) with a border radius of 5px and background color of red with white text color.
-  
-  5. Advanced:
-  	a. increase the [tableItems] array to 10 items
-    b. only show the first 4 items when rendering and add a "See More" button below them that when clicked will show the remaining items available
-	c. on mousoever of the "Go" buttons change the background color and text color and add an underline to the text.
-	d. on mouseover of the entire item row, add a 1px border, you pick the color; on mouseout make it go away
-	e. on mousoever of the "Go" buttons change the text to the value in CTAText2.
-  */
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	/*
+	Use JSBin or JSFiddle to make sure everything works - we will copy and paste your code into one them and test the functionality.
+	  
+	1. Add a page header object to the page that reads "This is my test Page!" - you can do this directly in the HTML above or use jQuery to inject it
+	  
+	2. Using the objects below, loop over the array and generate a table with a row for each item in the array.
+		 Make sure you inject the object into the #dataHolder DOM element above.
+	Within each row add a table cell for each element in the object you parse in the array.
+		 For the customimage.jpg reference, go download a logo from progressive, geico and size them 120x60px.  After the first two just duplicate using the same logos.
+	  
+	Make sure each element you add to the page has a class for css styling
+	  
+	3. Give each row a 1px border with color #e2e2e2
+	  
+	4. Make sure the last column contains a button object (div) with a border radius of 5px and background color of red with white text color.
+	  
+	5. Advanced:
+		a. increase the [tableItems] array to 10 items
+	b. only show the first 4 items when rendering and add a "See More" button below them that when clicked will show the remaining items available
+		c. on mousoever of the "Go" buttons change the background color and text color and add an underline to the text.
+		d. on mouseover of the entire item row, add a 1px border, you pick the color; on mouseout make it go away
+		e. on mousoever of the "Go" buttons change the text to the value in CTAText2.
+	*/
     
-    var tableItems = [{"logo":"customimage.png","title":"Title 1", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-                    {"logo":"customimage.png","title":"Title 2", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-                   {"logo":"customimage.png","title":"Title 3", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-                   {"logo":"customimage.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}],
-    _Table = '',
-    _TRs = '',
-    _TDs = ''; 
-  
-  $( document ).ready(function() {
-    //insert your custom javascript code here
-    
-  });
-
-  </script>
+	var tableItems = [{"logo":"customimage.png","title":"Title 1", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"customimage.png","title":"Title 2", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"customimage.png","title":"Title 3", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"customimage.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}],
+		_Table = '',
+		_TRs = '',
+		_TDs = ''; 
+	  
+		$( document ).ready(function() {
+		    //insert your custom javascript code here
+		    
+		});
+	</script>
 </html>
