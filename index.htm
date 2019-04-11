@@ -68,8 +68,18 @@
 			table.id = "adTable";
 			$(header).after(table);
 			//loop through the tableItems and place each ad as its own <tr> in the table
-			$.each(tableItems, function ( section, value ) {
+			$.each(tableItems, function ( adIndex, value ) {
 				//insert the current ad in the loop into the table. Only show the first 4 first	
+				let thisAd = document.createElement('tr');
+				thisAd.id = adIndex + "_ad";
+				$(table).append(thisAd);
+				//insert contents of each ad section in the object we are at in the loop
+				$.each(value, function (section, value) {
+					let thisSection = document.createElement('td');
+					thisSection.id = thisAd.id + "_" + section;
+					thisSection.innerHTML = value;
+					$(thisAd).append(thisSection);
+				});
 			});
 		});
 	</script>
