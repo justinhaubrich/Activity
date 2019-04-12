@@ -87,11 +87,17 @@
 		{"logo":"assets/logo_progressive.png","title":"Title 2", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_geico.png","title":"Title 3", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title" : "Title 5", "body" : "<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}	
+		{"logo":"assets/logo_geico.png","title" : "Title 5", "body" : "<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},	
+		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Title 5", "body" : "<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Title 5", "body" : "<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}
 	],
 		_Table = '',
 		_TRs = '',
-		_TDs = ''; 
+		_TDs = '',
+		_toggleAds = 'false'; 
 
 		$( document ).ready(function() { //insert your custom javascript code here
 		   	//create the header
@@ -114,11 +120,12 @@
 			//loop through the tableItems and place each ad as its own <tr> in the table
 			$.each(tableItems, function ( adIndex, value ) {
 				//insert the current ad in the loop into the table. Only show the first 4 first	
+				if (adIndex == 4 && _toggleAds == 'false') {console.log('break here');return false;}
 				let thisAd = document.createElement('tr');
 				thisAd.id = adIndex + "_ad";
 				$(thisAd).addClass('ad');
 				$(table).append(thisAd);
-				//insert contents of each ad section in the object we are at in the loop
+				//insert contents of each ad section
 				$.each(value, function (section, value) {
 					let thisSection = document.createElement('td');
 					thisSection.id = thisAd.id + "_" + section;
@@ -143,7 +150,11 @@
 					}
 					$(thisAd).append(thisSection);
 				});
+				
 			});
-		});
+		});//append the see more button to toggle the ads
+				let seeMore = document.createElement('div');
+				seeMore.innerHTML = 'See More';
+				$('#adTable').append(seeMore);
 	</script>
 </html>
