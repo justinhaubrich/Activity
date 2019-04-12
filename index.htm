@@ -122,41 +122,8 @@
 			//create the table and place it after the header
 			var table = document.createElement('table');
 			table.id = "adTable";
-			$(header).after(table);
-			//loop through the tableItems and place each ad as its own <tr> in the table
-			$.each(tableItems, function ( adIndex, value ) {
-				//insert the current ad in the loop into the table. Only show the first 4 first	
-				if (adIndex == 4 && _toggleAds == 'false') {console.log('break here');return false;}
-				let thisAd = document.createElement('tr');
-				thisAd.id = adIndex + "_ad";
-				$(thisAd).addClass('ad');
-				$(table).append(thisAd);
-				//insert contents of each ad section
-				$.each(value, function (section, value) {
-					let thisSection = document.createElement('td');
-					thisSection.id = thisAd.id + "_" + section;
-					//if section is logo insert the image
-					console.log(section);
-					if (section == 'logo') { 
-						thisSection.innerHTML = "<img src='" + value + "' alt='logo'>";
-						$(thisSection).addClass('section');
-					} 
-					//if section is CTATEXT place the button div
-					else if (section == 'CTAText') {
-						let buttonDiv = document.createElement('div');
-						buttonDiv.innerHTML = value;
-						$(buttonDiv).addClass('buttonDiv');
-						$(thisSection).append(buttonDiv);
-					}
-					else if (section == 'CTAText2') {
-					}
-
-					else {
-						thisSection.innerHTML = value;
-					}
-					$(thisAd).append(thisSection);
-				});
-			});
+			$('#dataHolder').append(table);
+			generateTable();
 			//append the see more button to toggle the ads
 			let seeMore = document.createElement('div');
 			seeMore.innerHTML = '<div id="seeMoreButton" class="seeMore">See More</div>';
@@ -168,6 +135,44 @@
 			});
 			seeMore.style.textAlign = 'center';
 			$('#adTable').after(seeMore);
+			//generateTable fills the <table> with contents
+			function generateTable() {
+				//loop through the tableItems and place each ad as its own <tr> in the table
+				$.each(tableItems, function ( adIndex, value ) {
+					//insert the current ad in the loop into the table. Only show the first 4 first	
+					if (adIndex == 4 && _toggleAds == 'false') {console.log('break here');return false;}
+					let thisAd = document.createElement('tr');
+					thisAd.id = adIndex + "_ad";
+					$(thisAd).addClass('ad');
+					$(table).append(thisAd);
+					//insert contents of each ad section
+					$.each(value, function (section, value) {
+						let thisSection = document.createElement('td');
+						thisSection.id = thisAd.id + "_" + section;
+						//if section is logo insert the image
+						console.log(section);
+						if (section == 'logo') { 
+							thisSection.innerHTML = "<img src='" + value + "' alt='logo'>";
+							$(thisSection).addClass('section');
+						} 
+						//if section is CTATEXT place the button div
+						else if (section == 'CTAText') {
+							let buttonDiv = document.createElement('div');
+							buttonDiv.innerHTML = value;
+							$(buttonDiv).addClass('buttonDiv');
+							$(thisSection).append(buttonDiv);
+						}
+						else if (section == 'CTAText2') {
+						}
+
+						else {
+							thisSection.innerHTML = value;
+						}
+						$(thisAd).append(thisSection);
+					});
+				});
+
+			}//end of generateTable();
 
 		});
 			</script>
