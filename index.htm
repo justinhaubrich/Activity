@@ -11,12 +11,15 @@
 			margin: auto;
 		}
 		#adTable {
-			border-collapse: collapse;	
+			border-collapse: separate;	
+			border-spacing:0 5px;
 			width: 960px;
 			margin-top:10px;
 		}
+		/*.ad class is used on <tr>*/
 		.ad {
 			border: solid 1px #e2e2e2;
+			border-radius:5px;
 		}
 		.section {
 			padding-top:10px;
@@ -34,6 +37,19 @@
 			font-family:Roboto, sans-serif;
 			font-weight:500;
 			text-transform:uppercase;
+		}
+		td {
+			border-top: 1px solid #e2e2e2;
+			border-bottom: 1px solid #e2e2e2;
+			margin-bottom:5px;
+		}
+		td:first-child {border-left:1px solid #e2e2e2;}
+		td:last-child {border-right:1px solid #e2e2e2;}
+		tbody tr td:first-child {
+			border-radius: 0.6em 0 0 0.6em;
+		}
+		tbody tr td:last-child {
+			border-radius: 0 0.6em 0.6em 0;
 		}
 	</style>
 </head>
@@ -70,7 +86,9 @@
 	var tableItems = [{"logo":"assets/logo_geico.png","title":"Title 1", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_progressive.png","title":"Title 2", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_geico.png","title":"Title 3", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}],
+		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Title 5", "body" : "<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}	
+	],
 		_Table = '',
 		_TRs = '',
 		_TDs = ''; 
