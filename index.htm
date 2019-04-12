@@ -38,6 +38,11 @@
 			font-weight:500;
 			text-transform:uppercase;
 		}
+		.seeMore {
+			margin: auto;
+			width:150px;
+
+		}
 		td {
 			border-top: 1px solid #e2e2e2;
 			border-bottom: 1px solid #e2e2e2;
@@ -100,19 +105,20 @@
 		_toggleAds = 'false'; 
 
 		$( document ).ready(function() { //insert your custom javascript code here
-		   	//create the header
-			var header = document.createElement('div');
-			header.style.textAlign = 'center';
-			header.innerHTML = 'This is my test Page!';
-			//header.style.textTransform = 'uppercase';
-			$('#dataHolder').prepend(header);
 			//function to dynamically load Google web fonts
 			function addGoogleFont(fontname) {
 				$('head').append("<link href='https://fonts.googleapis.com/css?family=" + fontname + "' rel='stylesheet' type='text/css'>");
 			}
+
 			//I'm going to use the Sans Roboto for the header and titles, Spectral for all other type
 			addGoogleFont('Roboto:400,500|Spectral');
+		   	//create the header
+			var header = document.createElement('div');
 			$(header).css({"font-family": "'Roboto', sans-serif","font-weight":"500"});
+			header.style.textAlign = 'center';
+			header.innerHTML = 'This is my test Page!';
+			//header.style.textTransform = 'uppercase';
+			$('#dataHolder').prepend(header);
 			//create the table and place it after the header
 			var table = document.createElement('table');
 			table.id = "adTable";
@@ -150,11 +156,19 @@
 					}
 					$(thisAd).append(thisSection);
 				});
-				
 			});
-		});//append the see more button to toggle the ads
-				let seeMore = document.createElement('div');
-				seeMore.innerHTML = 'See More';
-				$('#adTable').append(seeMore);
-	</script>
+			//append the see more button to toggle the ads
+			let seeMore = document.createElement('div');
+			seeMore.innerHTML = '<div id="seeMoreButton" class="seeMore">See More</div>';
+			seeMore.id = 'seeMore';
+			//ad an onclick that checks the toggle value. If toggle is false, show all ten ads. If true, show all 10
+			$(seeMore).click(function () {
+				//reset the table	
+
+			});
+			seeMore.style.textAlign = 'center';
+			$('#adTable').after(seeMore);
+
+		});
+			</script>
 </html>
