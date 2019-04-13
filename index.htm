@@ -39,6 +39,7 @@
 			text-transform:uppercase;
 			width:100px;
 			margin:auto;
+			margin-right:10px;
 			height:40px;
 			user-select: none;
 			-webkit-touch-callout: none;
@@ -60,6 +61,7 @@
 			text-transform:uppercase;
 			width:100px;
 			margin:auto;
+			margin-right:10px;
 			text-decoration: underline;
 			height:40px;
 			user-select: none;
@@ -71,7 +73,10 @@
 		}
 		.title, .body {
 			font-size:10pt;
-				font-family:Spectral, sans-serif;
+			font-family:Spectral, sans-serif;
+		}
+		.bodySection{
+			padding-right:20px;
 		}
 		.seeMore {
 			margin: auto;
@@ -82,7 +87,7 @@
 			-khtml-user-select: none;
 			-moz-user-select: none;
 			-ms-user-select: none;
-				font-family: Roboto, sans-serif;
+			font-family: Roboto, sans-serif;
 			font-weight:500;
 		}
 		td {
@@ -94,13 +99,12 @@
 		td:last-child {border-right:1px solid #e2e2e2;}
 		/*Row Hover Styles*/
 		.tdHover {
-				border-top: 1px solid orange !important;
-				border-bottom: 1px solid orange !important;
-				margin-bottom:5px;
-			}
+			border-top: 1px solid orange !important;
+			border-bottom: 1px solid orange !important;
+			margin-bottom:5px;
+		}
 		.tdFirstChild {border-left:1px solid orange !important;}
 		.tdSecondChild {border-right:1px solid orange !important;}
-
 		tbody tr td:first-child {
 			border-radius: 5px 0 0 5px;
 		}
@@ -118,20 +122,18 @@
 </body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript">
-	var tableItems = [{"logo":"assets/logo_geico.png","title":"Title 1", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"Title 2", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title":"Title 3", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title" : "Title 5", "body" : "<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},	
-		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title" : "Title 5", "body" : "<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title" : "Title 5", "body" : "<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"Title 4", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}
+	var tableItems = [
+        {"logo":"assets/logo_geico.png","title":"Lorem Ipsum dolor sit amet", "body":"<ul><li>Sed id sodales erat</li><li>Quisque eget imperdiet mi, quis pharetra.</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Quisque varius quam leo", "body":"<ul><li>Morbi palcet fringilla leom</li><li>Vulputate valet sem finibus tortor</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title":"Donec rhoncus, erat at dapibus", "body":"<ul><li>Lectus felis in Vestibulum</li><li>Nallam egestas quis odio</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"In libero erat, laoreet in egestas quis, lacinia at odio.", "body":"<ul><li>Proin pellentesque felis at mi rutrum vehicula.</li><li>Etiam volutpat leo in est rhoncus, quis varius urna dignissim</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Duis porta, enim ut pellentesque sollicitudin, est turpis placerat augue</li><li>Integer pretium metus ut nisl</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},	
+		{"logo":"assets/logo_progressive.png","title":"Etiam id urna nec metus", "body":"<ul><li>Nulla facilisi, cursus nec</li><li>Vestibulum orci dui</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Pellentesque elementum nunc</li><li>Ut ut mollis massa, vel maximus</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Aenean dolor ante, scelerisque sit", "body":"<ul><li>Etiam volutpat leo in est rhoncus</li><li>quis varius urna</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Sed a rhoncus orci. Maecenas euismod nisl", "body" : "<ul><li> Proin pellentesque felis</li><li>Pellentesque egestas gravida</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Aenean dolor ante, scelerisque", "body":"<ul><li>lobortis luctus nibh</li><li>Pellentesque habitant morbi</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}
 	],
-		_Table = '',
-		_TRs = '',
-		_TDs = '',
 		_tableItemsArray = Object.values(tableItems),
 		_toggleAds = false; 
 
@@ -218,6 +220,9 @@
 						else {
 							thisSection.innerHTML = value;
 							$(thisSection).addClass(section);
+							if (section == 'body') {
+								$(thisSection).addClass('bodySection');
+							}
 						}
 						$(thisAd).append(thisSection);
 					});
