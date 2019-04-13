@@ -102,7 +102,8 @@
 		_Table = '',
 		_TRs = '',
 		_TDs = '',
-		_toggleAds = 'false'; 
+		_tableItemsArray = Object.values(tableItems),
+		_toggleAds = false; 
 
 		$( document ).ready(function() { //insert your custom javascript code here
 			//function to dynamically load Google web fonts
@@ -131,6 +132,15 @@
 			//ad an onclick that checks the toggle value. If toggle is false, show all ten ads. If true, show all 10
 			$(seeMore).click(function () {
 				//reset the table	
+				_toggleAds = !_toggleAds;
+				if (_toggleAds == true) {
+					document.getElementById('seeMoreButton').innerHTML = 'See Less';
+				} else {
+					document.getElementById('seeMoreButton').innerHTML = 'See More';
+				}
+				$(table).html('');
+				console.log($(table));
+				generateTable();
 
 			});
 			seeMore.style.textAlign = 'center';
@@ -140,7 +150,7 @@
 				//loop through the tableItems and place each ad as its own <tr> in the table
 				$.each(tableItems, function ( adIndex, value ) {
 					//insert the current ad in the loop into the table. Only show the first 4 first	
-					if (adIndex == 4 && _toggleAds == 'false') {console.log('break here');return false;}
+					if (adIndex == 4 && _toggleAds == false) {console.log('break here');return false;}
 					let thisAd = document.createElement('tr');
 					thisAd.id = adIndex + "_ad";
 					$(thisAd).addClass('ad');
@@ -159,6 +169,15 @@
 						else if (section == 'CTAText') {
 							let buttonDiv = document.createElement('div');
 							buttonDiv.innerHTML = value;
+							$(buttonDiv).mouseover(function() {
+								console.log(adIndex);
+								buttonDiv.innerHTML = _tableItemsArray[adIndex].CTAText2;
+							});
+							$(buttonDiv).mouseout(function() {
+								console.log(adIndex);
+								buttonDiv.innerHTML = _tableItemsArray[adIndex].CTAText;
+							});
+
 							$(buttonDiv).addClass('buttonDiv');
 							$(thisSection).append(buttonDiv);
 						}
