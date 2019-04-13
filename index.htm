@@ -28,20 +28,37 @@
 			padding-right:20px;
 		}
 		.buttonDiv {
+			border: solid 3px red;
 			border-radius:5px;
 			background-color:red;
 			color:white;
 			text-align: center;
-			margin-right:20px;
+			font-size:24pt;
+			font-family:Roboto, sans-serif;
+			font-weight:500;
+			text-transform:uppercase;
+			width:100px;
+			margin:auto;
+				height:40px;
+		}
+		.CTAText2 {
+			border: solid 3px #3cd3ad;
+			border-radius:5px;
+			background-color:white;
+			color:#3cd3ad;
+			text-align: center;
 			font-size:16pt;
 			font-family:Roboto, sans-serif;
 			font-weight:500;
 			text-transform:uppercase;
+			width:100px;
+			margin:auto;
+			text-decoration: underline;
+				height:40px;
 		}
 		.seeMore {
 			margin: auto;
 			width:150px;
-
 		}
 		td {
 			border-top: 1px solid #e2e2e2;
@@ -64,30 +81,6 @@
 </body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript">
-	/*
-	Use JSBin or JSFiddle to make sure everything works - we will copy and paste your code into one them and test the functionality.
-	  
-	1. Add a page header object to the page that reads "This is my test Page!" - you can do this directly in the HTML above or use jQuery to inject it
-	  
-	2. Using the objects below, loop over the array and generate a table with a row for each item in the array.
-		Make sure you inject the object into the #dataHolder DOM element above.
-		Within each row add a table cell for each element in the object you parse in the array.
-		For the customimage.jpg reference, go download a logo from progressive, geico and size them 120x60px.
-		After the first two just duplicate using the same logos.
-	  
-	Make sure each element you add to the page has a class for css styling
-	  
-	3. Give each row a 1px border with color #e2e2e2
-	  
-	4. Make sure the last column contains a button object (div) with a border radius of 5px and background color of red with white text color.
-	  
-	5. Advanced:
-		a. increase the [tableItems] array to 10 items
-		b. only show the first 4 items when rendering and add a "See More" button below them that when clicked will show the remaining items available
-		c. on mousoever of the "Go" buttons change the background color and text color and add an underline to the text.
-		d. on mouseover of the entire item row, add a 1px border, you pick the color; on mouseout make it go away
-		e. on mousoever of the "Go" buttons change the text to the value in CTAText2.
-	*/
 	var tableItems = [{"logo":"assets/logo_geico.png","title":"Title 1", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_progressive.png","title":"Title 2", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_geico.png","title":"Title 3", "body":"<ul><li>Item 1</li><li>Item 2</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
@@ -168,14 +161,16 @@
 						//if section is CTATEXT place the button div
 						else if (section == 'CTAText') {
 							let buttonDiv = document.createElement('div');
-							buttonDiv.innerHTML = value;
+							buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + value + "</div>";
 							$(buttonDiv).mouseover(function() {
 								console.log(adIndex);
-								buttonDiv.innerHTML = _tableItemsArray[adIndex].CTAText2;
+								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText2 + '</div>' ;
+								$(buttonDiv).addClass('CTAText2').removeClass('buttonDiv');
 							});
 							$(buttonDiv).mouseout(function() {
 								console.log(adIndex);
-								buttonDiv.innerHTML = _tableItemsArray[adIndex].CTAText;
+								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText + '</div>';
+								$(buttonDiv).addClass('buttonDiv').removeClass('CTAText2');
 							});
 
 							$(buttonDiv).addClass('buttonDiv');
