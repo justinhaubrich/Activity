@@ -43,9 +43,9 @@
 			padding-right:20px;
 		}
 		.buttonDiv {
-			border: solid 3px #65a9d7;
+			border: solid 3px #fff;
 			border-radius:5px;
-			background-color:red;
+			background-color:cornflowerblue;
 			color:white;
 			text-align: center;
 			font-size:24pt;
@@ -62,7 +62,7 @@
 			-khtml-user-select: none;
 			-moz-user-select: none;
 			-ms-user-select: none;
-				border-top: 1px solid #96d1f8;
+				
 				background: #65a9d7;
 				background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
 				background: -moz-linear-gradient(top, #3e779d, #65a9d7);
@@ -78,6 +78,7 @@
                top: 0%;
                left: 0%;
                opacity:50%;
+                overflow:hidden;
                background-image: -webkit-linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.0), rgba(255,255,255,0.3)); 
                background-image: -moz-linear-gradient(135deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));  
                transition: height 2s ease-out;
@@ -85,19 +86,21 @@
                    -o-transition: height 0.5s ease-out; 
               -webkit-transition: height 0.5s ease-out;
                   -ms-transition: height 0.5s ease-out;
+            border-radius:3px;
             
         }
         .buttonDiv:hover:before {
             opacity:0%;
             height:0%;
+            border-radius:3px;
             
         }
 		.title { 
 			font-family:Roboto, sans-serif;
 			font-weight:500;
 			font-size:12pt;
-			background-color:#f9f9f9;
-			color:gray;
+			background-color:#fff;
+			color:orange;
 			padding:15px;
 			text-align:center;
 			position:relative;
@@ -154,6 +157,10 @@
 				text-transform:uppercase;
 					font-size:10pt;
 		}
+        .lightOrange {
+            background-color: #FFCF9E;
+            color:#FFF;
+        }
 		td {
 			border-top: 1px solid #e2e2e2;
 			border-bottom: 1px solid #e2e2e2;
@@ -277,6 +284,7 @@
 						else if (section == 'CTAText') {
 							let buttonDiv = document.createElement('div');
 							buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + value + "</div>";
+							$(thisSection).addClass('lightOrange');
 							$(buttonDiv).mouseover(function() {
 								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText2 + '</div>' ;
 								//$(buttonDiv).addClass('CTAText2').removeClass('buttonDiv');
@@ -289,18 +297,17 @@
 								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText + '</div>';
 								//$(buttonDiv).addClass('buttonDiv').removeClass('CTAText2');
 							});
-
 							$(buttonDiv).addClass('buttonDiv');
 							$(thisSection).append(buttonDiv);
 						}
 						else if (section == 'CTAText2') {
-							$(thisSection).addClass('CTAText2hide');
+							$(thisSection).addClass('CTAText2hide').addClass('lightOrange');
 						}
 						else {
 							thisSection.innerHTML = value;
 							$(thisSection).addClass(section);
 							if (section == 'body') {
-								$(thisSection).addClass('bodySection');
+								$(thisSection).addClass('bodySection lightOrange');
 							}
 						}
 						$(thisAd).append(thisSection);
