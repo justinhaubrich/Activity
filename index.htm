@@ -16,6 +16,13 @@
 			width: 960px;
 			margin-top:10px;
 		}
+		.header {
+			font-family: Roboto, sans-serif;
+			font-weight: 500;
+			text-align:center;
+			color:gray;
+			text-transform:uppercase;
+		}
 		/*.ad class is used on <tr>*/
 		.ad {
 			border: solid 1px #e2e2e2;
@@ -71,16 +78,54 @@
 			-moz-user-select: none;
 			-ms-user-select: none;
 		}
-		.title, .body {
+		.title { 
+			font-family:Roboto, sans-serif;
+			font-weight:500;
+			font-size:12pt;
+			background-color:#f9f9f9;
+			color:gray;
+			padding:5px;
+			text-align:center;
+			position:relative;
+		}
+		.title:after{
+			content:'';
+			width:0px;
+			height:0px;
+			border-top:10px solid transparent;
+			border-left:10px solid #f9f9f9;
+			border-bottom:10px solid transparent;
+			border-right:10px solid transparent;
+			position:absolute;
+			left:100%;
+			top:50%;
+			margin-top:-10px;
+		}
+		.title:before{
+			content:'';
+			width:0px;
+			height:0px;
+			border-top:10px solid transparent;
+			border-left:10px solid #fff;
+			border-bottom:10px solid transparent;
+			border-right:10px solid transparent;
+			position:absolute;
+			left:0%;
+			top:50%;
+			margin-top:-10px;
+		}
+
+		.body {
 			font-size:10pt;
 			font-family:Spectral, sans-serif;
+				color:gray;
 		}
 		.bodySection{
 			padding-right:20px;
 		}
 		.seeMore {
 			margin: auto;
-			width:150px;
+			width:75px;
 			user-select:none;
 			-webkit-touch-callout: none;
 			-webkit-user-select: none;
@@ -89,6 +134,11 @@
 			-ms-user-select: none;
 			font-family: Roboto, sans-serif;
 			font-weight:500;
+			color:white;
+			padding:5px;
+			background-color:#e2e2e2;
+				text-transform:uppercase;
+					font-size:10pt;
 		}
 		td {
 			border-top: 1px solid #e2e2e2;
@@ -147,7 +197,7 @@
 			addGoogleFont('Roboto:400,500|Spectral');
 		   	//create the header
 			var header = document.createElement('div');
-			$(header).css({"font-family": "'Roboto', sans-serif","font-weight":"500"});
+			$(header).addClass('header');
 			header.style.textAlign = 'center';
 			header.innerHTML = 'This is my test Page!';
 			//header.style.textTransform = 'uppercase';
