@@ -6,22 +6,36 @@
 	<title>JS Bin</title>
 	<style type="text/css">
 		@media screen and (max-width:475px) {
+			#dataHolder {
+				width: 350px !important;
+			}
+			.header{
+				width: 350px !important;
+			}
 			#adTable {
 				width: 350px !important;
+					margin:auto;
+			}
+			.ad {
+				box-shadow: 0px 0px 1px 1px #e2e2e2;
+				border-radius:5px;
+			}
+			.ad:hover {
+
 			}
 			td {
 				display:inline-flex;
-					justify-content:center;
+				justify-content:center;
 				/*width: -webkit-fill-available;*/
-					width:350px !important;
-					border-top: 1px solid transparent !important;
-						border-bottom:  1px solid transparent !important;
-							margin-bottom: !important;
+				width:350px !important;
+				border-top: 1px solid transparent !important;
+				border-bottom:  1px solid transparent !important;
+				margin-bottom: !important;
 			}
 			td:first-child{
 				border-left: 1px solid transparent !important;
-					width:350px !important;
-						padding: 0px !important;
+				width:350px !important;
+				padding: 0px !important;
 			}
 			.buttonDiv {
 				margin:auto !important;
@@ -33,37 +47,40 @@
 				width: 350px !important;
 					padding: 0px !important;
 			}
-				.title:after{
-					content:'' !important;
-					width:0px !important;
-					height:0px !important;
-					border-top:10px solid #e2e2e2 !important;
-					border-left:10px solid transparent !important;
-					border-bottom:10px solid transparent !important;
-					border-right:10px solid transparent !important;
-					position:absolute !important;
-					left:50% !important;
-					top:100% !important;
-					margin-top:0px !important;
-					margin-left:0px !important;
-						transform: translateX(-50%) !important;
-				}
-				.title:before{
-					content:'';
-					width:0px;
-					height:0px;
-					border-top:10px solid transparent;
-					border-left:10px solid transparent !important;
-					border-bottom:10px solid white !important;
-					border-right:10px solid transparent;
-					position:absolute;
-					left:0%;
-					top:50%;
-					margin-top:-10px;
-				}
-				.bodySection {
-					padding-right: 0px !important;
-				}
+			.title:after{
+				content:'' !important;
+				width:0px !important;
+				height:0px !important;
+				border-top:10px solid #f9f9f9 !important;
+				border-left:10px solid transparent !important;
+				border-bottom:10px solid transparent !important;
+				border-right:10px solid transparent !important;
+				position:absolute !important;
+				left:50% !important;
+				top:100% !important;
+				margin-top:0px !important;
+				margin-left:0px !important;
+					transform: translateX(-50%) !important;
+			}
+			.title:before{
+				content:'';
+				width:0px;
+				height:0px;
+				border-top:10px solid transparent;
+				border-left:10px solid transparent !important;
+				border-bottom:10px solid transparent !important;
+				border-right:10px solid transparent;
+				position:absolute;
+				left:0%;
+				top:50%;
+				margin-top:-10px;
+			}
+			.bodySection {
+				padding-right: 0px !important;
+			}
+			#seeMore {
+				width:350px;
+			}
 
 
 		}
@@ -415,17 +432,14 @@
 							let buttonDiv = document.createElement('div');
 							buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + value + "</div>";
 							$(buttonDiv).mouseover(function() {
-								console.log(adIndex);
 								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText2 + '</div>' ;
 								$(buttonDiv).addClass('CTAText2').removeClass('buttonDiv');
 							});
 							$(buttonDiv).mouseleave(function() {
-								console.log(adIndex);
 								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText + '</div>';
 								$(buttonDiv).addClass('buttonDiv').removeClass('CTAText2');
 							});
 							$(thisAd).mouseleave(function() {
-								console.log(adIndex);
 								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText + '</div>';
 								$(buttonDiv).addClass('buttonDiv').removeClass('CTAText2');
 							});
