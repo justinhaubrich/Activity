@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>JS Bin</title>
+	<style type="text/css">
+		/* Add custom CSS here */
+		#dataHolder {
+			width: 960px;
+			margin: auto;
+		}
+		#adTable {
+			border-collapse: separate;	
+			border-spacing:0 10px;
+			width: 960px;
+			margin-top:10px;
+		}
+		.header {
+			margin-top:10px;
+			font-family: Roboto, sans-serif;
+			font-weight: 500;
+			letter-spacing:.10em;
+			text-align:center;
+			color:gray;
+			text-transform:uppercase;
+			font-size:10pt;
+			user-select:none;
+			-ms-user-select:none;
+			-webkit-user-select:none;
+			-moz-user-select: -moz-none;
+
+		}
+		/*.ad class is used on <tr>*/
+		.ad {
+			border: solid 1px #e2e2e2;
+			border-radius:5px;
+		}
+		.section {
+			padding-top:10px;
+			padding-bottom:10px;
+			padding-left:20px;
+			padding-right:20px;
+		}
+		.buttonDiv {
+			border: solid 3px #65a9d7;
+			border-radius:5px;
+			background-color:red;
+			color:white;
+			text-align: center;
+			font-size:24pt;
+			font-family:Roboto, sans-serif;
+			font-weight:500;
+			text-transform:uppercase;
+			width:100px;
+			margin:auto;
+			margin-right:10px;
+			height:40px;
+			user-select: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+				border-top: 1px solid #96d1f8;
+				background: #65a9d7;
+				background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+				background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+				padding: 5px 10px;	
+            position:relative;
+		}
+        .buttonDiv:hover{font-size:15pt;text-decoration: underline;}
+        .buttonDiv:before{
+               content: "";
+               width: 100%;
+               height: 100%;
+               position: absolute;
+               top: 0%;
+               left: 0%;
+               opacity:50%;
+               background-image: -webkit-linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.0), rgba(255,255,255,0.3)); 
+               background-image: -moz-linear-gradient(135deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));  
+               transition: height 2s ease-out;
+                 -moz-transition: height 0.5s ease-out; 
+                   -o-transition: height 0.5s ease-out; 
+              -webkit-transition: height 0.5s ease-out;
+                  -ms-transition: height 0.5s ease-out;
+            
+        }
+        .buttonDiv:hover:before {
+            opacity:0%;
+            height:0%;
+            
+        }
+		.title { 
+			font-family:Roboto, sans-serif;
+			font-weight:500;
+			font-size:12pt;
+			background-color:#f9f9f9;
+			color:gray;
+			padding:15px;
+			text-align:center;
+			position:relative;
+		}
+		.title:after{
+			content:'';
+			width:0px;
+			height:0px;
+			border-top:10px solid transparent;
+			border-left:10px solid #f9f9f9;
+			border-bottom:10px solid transparent;
+			border-right:10px solid transparent;
+			position:absolute;
+			left:100%;
+			top:50%;
+			margin-top:-10px;
+		}
+		.title:before{
+			content:'';
+			width:0px;
+			height:0px;
+			border-top:10px solid transparent;
+			border-left:10px solid #fff;
+			border-bottom:10px solid transparent;
+			border-right:10px solid transparent;
+			position:absolute;
+			left:0%;
+			top:50%;
+			margin-top:-10px;
+		}
+
+		.body {
+			font-size:10pt;
+			font-family:Spectral, sans-serif;
+				color:gray;
+		}
+		.bodySection{
+			padding-right:20px;
+		}
+		.seeMore {
+			margin: auto;
+			width:75px;
+			user-select:none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			font-family: Roboto, sans-serif;
+			font-weight:500;
+			color:white;
+			padding:5px;
+			background-color:#e2e2e2;
+				text-transform:uppercase;
+					font-size:10pt;
+		}
+		td {
+			border-top: 1px solid #e2e2e2;
+			border-bottom: 1px solid #e2e2e2;
+			margin-bottom:5px;
+			user-select:none;
+		}
+		td:first-child {border-left:1px solid #e2e2e2;}
+		td:last-child {border-right:1px solid #e2e2e2;}
+		/*Row Hover Styles*/
+		.tdHover {
+			border-top: 1px solid orange !important;
+			border-bottom: 1px solid orange !important;
+			margin-bottom:5px;
+		}
+		.tdHover:first-child {border-left:1px solid orange !important;}
+		.tdHover:last-child {border-right:1px solid orange !important;}
+		tbody tr td:first-child {
+			border-radius: 5px 0 0 5px;
+		}
+		tbody tr td:last-child {
+			border-radius: 0 5px 5px 0;
+		}
+		.boxShadow {
+			box-shadow: 1px 1px 0px 1px #e2e2e2;
+				-webkit-appearance:none;
+			-webkit-box-shadow: 1px 1px 0px 1px #e2e2e2;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="dataHolder">
+	</div>
+</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	const config = {};
+	config.userAgent = window.navigator.userAgent.toString();
+	//regExpressions to find browser type
+	config.explorerReg = new RegExp(/^.*edge.*$/i);
+	if (config.explorerReg.test(config.userAgent) == true) {config.browser = 'edge';}
+	//edit the css definition for browser compatibility	
+	if (config.browser == 'edge') {
+		console.log (document.styleSheets[0]);		
+	}
+	var tableItems = [
+        {"logo":"assets/logo_geico.png","title":"Lorem Ipsum dolor sit amet", "body":"<ul><li>Sed id sodales erat</li><li>Quisque eget imperdiet mi, quis pharetra.</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Quisque varius quam leo", "body":"<ul><li>Morbi palcet fringilla leom</li><li>Vulputate valet sem finibus tortor</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title":"Donec rhoncus, erat at dapibus", "body":"<ul><li>Lectus felis in Vestibulum</li><li>Nallam egestas quis odio</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"In libero erat, laoreet in egestas quis, lacinia at elda odio.", "body":"<ul><li>Proin pellentesque felis at mi rutrum vehicula.</li><li>Etiam volutpat leo in est rhoncus, quis varius urna dignissim</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Duis porta, enim ut pellentesque sollicitudin, est turpis placerat augue</li><li>Integer pretium metus ut nisl</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},	
+		{"logo":"assets/logo_progressive.png","title":"Etiam id urna nec metus", "body":"<ul><li>Nulla facilisi, cursus nec</li><li>Vestibulum orci dui</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Pellentesque elementum nunc</li><li>Ut ut mollis massa, vel maximus</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Aenean dolor ante, scelerisque sit", "body":"<ul><li>Etiam volutpat leo in est rhoncus</li><li>quis varius urna</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_geico.png","title" : "Sed a rhoncus orci. Maecenas euismod nisl", "body" : "<ul><li> Proin pellentesque felis</li><li>Pellentesque egestas gravida</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"Aenean dolor ante, scelerisque", "body":"<ul><li>lobortis luctus nibh</li><li>Pellentesque habitant morbi</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}
+	],
+		_tableItemsArray = Object.values(tableItems),
+		_toggleAds = false; 
+
+		$( document ).ready(function() { //insert your custom javascript code here
+			//function to dynamically load Google web fonts
+			function addGoogleFont(fontname) {
+				$('head').append("<link href='https://fonts.googleapis.com/css?family=" + fontname + "' rel='stylesheet' type='text/css'>");
+			}
+
+			//I'm going to use the Sans Roboto for the header and titles, Spectral for all other type
+			addGoogleFont('Roboto:400,500,900|Spectral');
+		   	//create the header
+			var header = document.createElement('div');
+			$(header).addClass('header');
+			header.style.textAlign = 'center';
+			header.innerHTML = 'This is my test Page!';
+			//header.style.textTransform = 'uppercase';
+			$('#dataHolder').prepend(header);
+			//create the table and place it after the header
+			var table = document.createElement('table');
+			table.id = "adTable";
+			$('#dataHolder').append(table);
+			generateTable();
+			//append the see more button to toggle the ads
+			let seeMore = document.createElement('div');
+			seeMore.innerHTML = '<div id="seeMoreButton" class="seeMore">See More</div>';
+			seeMore.id = 'seeMore';
+			//ad an onclick that checks the toggle value. If toggle is false, show all ten ads. If true, show all 10
+			$(seeMore).click(function () {
+				//reset the table	
+				_toggleAds = !_toggleAds;
+				if (_toggleAds == true) {
+					document.getElementById('seeMoreButton').innerHTML = 'See Less';
+				} else {
+					document.getElementById('seeMoreButton').innerHTML = 'See More';
+				}
+				$(table).html('');
+				console.log($(table));
+				generateTable();
+			});
+			seeMore.style.textAlign = 'center';
+			$('#adTable').after(seeMore);
+			//generateTable fills the <table> with contents
+			function generateTable() {
+				//loop through the tableItems and place each ad as its own <tr> in the table
+				$.each(tableItems, function ( adIndex, value ) {
+					//insert the current ad in the loop into the table. Only show the first 4 first	
+					if (adIndex == 4 && _toggleAds == false) {console.log('break here');return false;}
+					let thisAd = document.createElement('tr');
+					thisAd.id = adIndex + "_ad";
+					$(thisAd).addClass('ad');
+					$(table).append(thisAd);
+					//insert contents of each ad section
+					$.each(value, function (section, value) {
+						let thisSection = document.createElement('td');
+						thisSection.id = thisAd.id + "_" + section;
+						//if section is logo insert the image
+						console.log(section);
+						if (section == 'logo') { 
+							thisSection.innerHTML = "<img src='" + value + "' alt='logo'>";
+							$(thisSection).addClass('section');
+						} 
+						//if section is CTATEXT place the button div
+						else if (section == 'CTAText') {
+							let buttonDiv = document.createElement('div');
+							buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + value + "</div>";
+							$(buttonDiv).mouseover(function() {
+								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText2 + '</div>' ;
+								//$(buttonDiv).addClass('CTAText2').removeClass('buttonDiv');
+							});
+							$(buttonDiv).mouseleave(function() {
+								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText + '</div>';
+								//$(buttonDiv).addClass('buttonDiv').removeClass('CTAText2');
+							});
+							$(thisAd).mouseleave(function() {
+								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText + '</div>';
+								//$(buttonDiv).addClass('buttonDiv').removeClass('CTAText2');
+							});
+
+							$(buttonDiv).addClass('buttonDiv');
+							$(thisSection).append(buttonDiv);
+						}
+						else if (section == 'CTAText2') {
+							$(thisSection).addClass('CTAText2hide');
+						}
+						else {
+							thisSection.innerHTML = value;
+							$(thisSection).addClass(section);
+							if (section == 'body') {
+								$(thisSection).addClass('bodySection');
+							}
+						}
+						$(thisAd).append(thisSection);
+					});//end of section loop
+					//add an onclick to the item row that changes the border color
+					$(thisAd).mouseover(function() {
+						if (config.browser != 'edge') {	
+							$(thisAd).addClass('boxShadow');
+						} else {//IE needs to just change the <td> class instead of adding a boxshadow
+							//only add the tdHover if the window width is larger than 475
+							if (window.innerWidth > 475) {
+								$(thisAd).children().addClass('tdHover');
+								console.log(thisAd + ":first-child");
+							}
+						}
+					});
+					$(thisAd).mouseleave(function() {
+						if (config.browser != 'edge') {
+							$(thisAd).removeClass('boxShadow');
+						} else {
+							$(thisAd).children().removeClass('tdHover');
+						}
+					});
+
+				});//end of tableItems loop
+
+			}//end of generateTable();
+
+		});
+			</script>
+</html>
