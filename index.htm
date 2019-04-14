@@ -17,11 +17,14 @@
 			margin-top:10px;
 		}
 		.header {
+			margin-top:10px;
 			font-family: Roboto, sans-serif;
 			font-weight: 500;
+			letter-spacing:.10em;
 			text-align:center;
 			color:gray;
-			text-transform:uppercase;
+				text-transform:uppercase;
+					font-size:10pt;
 		}
 		/*.ad class is used on <tr>*/
 		.ad {
@@ -199,7 +202,7 @@
 			}
 
 			//I'm going to use the Sans Roboto for the header and titles, Spectral for all other type
-			addGoogleFont('Roboto:400,500|Spectral');
+			addGoogleFont('Roboto:400,500,900|Spectral');
 		   	//create the header
 			var header = document.createElement('div');
 			$(header).addClass('header');
@@ -261,6 +264,11 @@
 								$(buttonDiv).addClass('CTAText2').removeClass('buttonDiv');
 							});
 							$(buttonDiv).mouseleave(function() {
+								console.log(adIndex);
+								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText + '</div>';
+								$(buttonDiv).addClass('buttonDiv').removeClass('CTAText2');
+							});
+							$(thisAd).mouseleave(function() {
 								console.log(adIndex);
 								buttonDiv.innerHTML = '<div style="position:relative;top:50%;transform: translateY(-50%);">' + _tableItemsArray[adIndex].CTAText + '</div>';
 								$(buttonDiv).addClass('buttonDiv').removeClass('CTAText2');
