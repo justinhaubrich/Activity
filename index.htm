@@ -30,7 +30,7 @@
 				width:350px !important;
 				border-top: 1px solid transparent !important;
 				border-bottom:  1px solid transparent !important;
-				margin-bottom: !important;
+				margin-bottom: 0px !important;
 			}
 			td:first-child{
 				border-left: 1px solid transparent !important;
@@ -39,13 +39,15 @@
 			}
 			.buttonDiv {
 				margin:auto !important;
+					margin-bottom: 10px !important;
 			}
 			.CTAText2 {
 				margin: auto !important;
+					margin-bottom: 10px !important;
 			}
 			.title {
 				width: 350px !important;
-					padding: 0px !important;
+				padding: 10px !important;
 			}
 			.title:after{
 				content:'' !important;
@@ -77,6 +79,10 @@
 			}
 			.bodySection {
 				padding-right: 0px !important;
+			}
+			.CTAText2hide {
+				display: none !important;
+				border-right: 0px solid transparent !important;
 			}
 			#seeMore {
 				width:350px;
@@ -154,6 +160,9 @@
 					border-bottom: 1px solid #e2e2e2;
 					margin-bottom:0px !important;
 					user-select:none;
+					-ms-user-select:none;
+					-webkit-user-select:none;
+					-moz-user-select: -moz-none;
 						width:-webkit-fill-available !important;
 				}
 				td:first-child {border-left:1px solid #e2e2e2;}
@@ -176,7 +185,7 @@
 		}
 		#adTable {
 			border-collapse: separate;	
-			border-spacing:0 5px;
+			border-spacing:0 10px;
 			width: 960px;
 			margin-top:10px;
 		}
@@ -190,6 +199,10 @@
 			text-transform:uppercase;
 			font-size:10pt;
 			user-select:none;
+			-ms-user-select:none;
+			-webkit-user-select:none;
+			-moz-user-select: -moz-none;
+
 		}
 		/*.ad class is used on <tr>*/
 		.ad {
@@ -357,7 +370,7 @@
         {"logo":"assets/logo_geico.png","title":"Lorem Ipsum dolor sit amet", "body":"<ul><li>Sed id sodales erat</li><li>Quisque eget imperdiet mi, quis pharetra.</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_progressive.png","title":"Quisque varius quam leo", "body":"<ul><li>Morbi palcet fringilla leom</li><li>Vulputate valet sem finibus tortor</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_geico.png","title":"Donec rhoncus, erat at dapibus", "body":"<ul><li>Lectus felis in Vestibulum</li><li>Nallam egestas quis odio</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"In libero erat, laoreet in egestas quis, lacinia at odio.", "body":"<ul><li>Proin pellentesque felis at mi rutrum vehicula.</li><li>Etiam volutpat leo in est rhoncus, quis varius urna dignissim</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"assets/logo_progressive.png","title":"In libero erat, laoreet in egestas quis, lacinia at elda odio.", "body":"<ul><li>Proin pellentesque felis at mi rutrum vehicula.</li><li>Etiam volutpat leo in est rhoncus, quis varius urna dignissim</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Duis porta, enim ut pellentesque sollicitudin, est turpis placerat augue</li><li>Integer pretium metus ut nisl</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},	
 		{"logo":"assets/logo_progressive.png","title":"Etiam id urna nec metus", "body":"<ul><li>Nulla facilisi, cursus nec</li><li>Vestibulum orci dui</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Pellentesque elementum nunc</li><li>Ut ut mollis massa, vel maximus</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
@@ -447,7 +460,9 @@
 							$(buttonDiv).addClass('buttonDiv');
 							$(thisSection).append(buttonDiv);
 						}
-						else if (section == 'CTAText2') {}
+						else if (section == 'CTAText2') {
+							$(thisSection).addClass('CTAText2hide');
+						}
 						else {
 							thisSection.innerHTML = value;
 							$(thisSection).addClass(section);
