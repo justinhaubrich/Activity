@@ -5,6 +5,153 @@
 	<meta name="viewport" content="width=device-width">
 	<title>JS Bin</title>
 	<style type="text/css">
+		@media screen and (max-width:475px) {
+			#adTable {
+				width: 350px !important;
+			}
+			td {
+				display:inline-flex;
+					justify-content:center;
+				/*width: -webkit-fill-available;*/
+					width:350px !important;
+					border-top: 1px solid transparent !important;
+						border-bottom:  1px solid transparent !important;
+							margin-bottom: !important;
+			}
+			td:first-child{
+				border-left: 1px solid transparent !important;
+					width:350px !important;
+						padding: 0px !important;
+			}
+			.buttonDiv {
+				margin:auto !important;
+			}
+			.CTAText2 {
+				margin: auto !important;
+			}
+			.title {
+				width: 350px !important;
+					padding: 0px !important;
+			}
+				.title:after{
+					content:'' !important;
+					width:0px !important;
+					height:0px !important;
+					border-top:10px solid #e2e2e2 !important;
+					border-left:10px solid transparent !important;
+					border-bottom:10px solid transparent !important;
+					border-right:10px solid transparent !important;
+					position:absolute !important;
+					left:50% !important;
+					top:100% !important;
+					margin-top:0px !important;
+					margin-left:0px !important;
+						transform: translateX(-50%) !important;
+				}
+				.title:before{
+					content:'';
+					width:0px;
+					height:0px;
+					border-top:10px solid transparent;
+					border-left:10px solid transparent !important;
+					border-bottom:10px solid white !important;
+					border-right:10px solid transparent;
+					position:absolute;
+					left:0%;
+					top:50%;
+					margin-top:-10px;
+				}
+				.bodySection {
+					padding-right: 0px !important;
+				}
+
+
+		}
+		@media (max-width:800px) and (min-width:475px) {
+				/* Add custom CSS here */
+				#dataHolder {
+					width: 560px !important;
+					margin: auto;
+				}
+				#adTable {
+					border-collapse: separate;	
+					border-spacing:0 5px;
+					width: 560px !important;
+					margin-top:10px;
+				}
+				.title { 
+					font-family:Roboto, sans-serif;
+					font-weight:500;
+					font-size:12pt;
+					background-color:#f9f9f9;
+					color:gray;
+					padding:15px;
+					text-align:center;
+					position:relative;
+					display:flex;
+						justify-content:center !important;
+					}
+				.title:after{
+					content:'' !important;
+					width:0px !important;
+					height:0px !important;
+					border-top:10px solid #e2e2e2 !important;
+					border-left:10px solid transparent !important;
+					border-bottom:10px solid transparent !important;
+					border-right:10px solid transparent !important;
+					position:absolute !important;
+					left:50% !important;
+					top:100% !important;
+					margin-top:0px !important;
+					margin-left:0px !important;
+						transform: translateX(-50%) !important;
+				}
+				.title:before{
+					content:'';
+					width:0px;
+					height:0px;
+					border-top:10px solid transparent;
+					border-left:10px solid transparent !important;
+					border-bottom:10px solid transparent;
+					border-right:10px solid transparent;
+					position:absolute;
+					left:0%;
+					top:50%;
+					margin-top:-10px;
+				}
+
+				.body {
+					font-size:10pt;
+					font-family:Spectral, sans-serif;
+						color:gray;
+							display:flex;
+				}
+				.bodySection{
+					padding-right:20px;
+				}
+				.buttonDiv {
+					margin-left:10px !important;
+				}
+			td {
+					border-top: 1px solid #e2e2e2;
+					border-bottom: 1px solid #e2e2e2;
+					margin-bottom:0px !important;
+					user-select:none;
+						width:-webkit-fill-available !important;
+				}
+				td:first-child {border-left:1px solid #e2e2e2;}
+				td:last-child {border-right:1px solid #e2e2e2;}
+				/*Row Hover Styles*/
+				.tdHover {
+					border-top: 1px solid orange !important;
+					border-bottom: 1px solid orange !important;
+					margin-bottom:0px !important;
+				}
+
+
+
+
+		}
 		/* Add custom CSS here */
 		#dataHolder {
 			width: 960px;
@@ -185,6 +332,10 @@
 	//regExpressions to find browser type
 	config.explorerReg = new RegExp(/^.*edge.*$/i);
 	if (config.explorerReg.test(config.userAgent) == true) {config.browser = 'edge';}
+	//edit the css definition for browser compatibility	
+	if (config.browser == 'edge') {
+		console.log (document.styleSheets[0]);		
+	}
 	var tableItems = [
         {"logo":"assets/logo_geico.png","title":"Lorem Ipsum dolor sit amet", "body":"<ul><li>Sed id sodales erat</li><li>Quisque eget imperdiet mi, quis pharetra.</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_progressive.png","title":"Quisque varius quam leo", "body":"<ul><li>Morbi palcet fringilla leom</li><li>Vulputate valet sem finibus tortor</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
@@ -297,8 +448,11 @@
 						if (config.browser != 'edge') {	
 							$(thisAd).addClass('boxShadow');
 						} else {//IE needs to just change the <td> class instead of adding a boxshadow
-							$(thisAd).children().addClass('tdHover');
-							console.log(thisAd + ":first-child");
+							//only add the tdHover if the window width is larger than 475
+							if (window.innerWidth > 475) {
+								$(thisAd).children().addClass('tdHover');
+								console.log(thisAd + ":first-child");
+							}
 						}
 					});
 					$(thisAd).mouseleave(function() {
