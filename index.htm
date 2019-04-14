@@ -84,7 +84,7 @@
 			font-size:12pt;
 			background-color:#f9f9f9;
 			color:gray;
-			padding:5px;
+			padding:15px;
 			text-align:center;
 			position:relative;
 		}
@@ -153,8 +153,8 @@
 			border-bottom: 1px solid orange !important;
 			margin-bottom:5px;
 		}
-		.tdFirstChild {border-left:1px solid orange !important;}
-		.tdSecondChild {border-right:1px solid orange !important;}
+		.tdHover:first-child {border-left:1px solid orange !important;}
+		.tdHover:last-child {border-right:1px solid orange !important;}
 		tbody tr td:first-child {
 			border-radius: 5px 0 0 5px;
 		}
@@ -172,6 +172,11 @@
 </body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript">
+	const config = {};
+	config.userAgent = window.navigator.userAgent.toString();
+	//regExpressions to find browser type
+	config.explorerReg = new RegExp(/^.*edge.*$/i);
+	if (config.explorerReg.test(config.userAgent) == true) {config.browser = 'edge';}
 	var tableItems = [
         {"logo":"assets/logo_geico.png","title":"Lorem Ipsum dolor sit amet", "body":"<ul><li>Sed id sodales erat</li><li>Quisque eget imperdiet mi, quis pharetra.</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
 		{"logo":"assets/logo_progressive.png","title":"Quisque varius quam leo", "body":"<ul><li>Morbi palcet fringilla leom</li><li>Vulputate valet sem finibus tortor</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
@@ -264,9 +269,7 @@
 							$(buttonDiv).addClass('buttonDiv');
 							$(thisSection).append(buttonDiv);
 						}
-						else if (section == 'CTAText2') {
-						}
-
+						else if (section == 'CTAText2') {}
 						else {
 							thisSection.innerHTML = value;
 							$(thisSection).addClass(section);
@@ -275,16 +278,25 @@
 							}
 						}
 						$(thisAd).append(thisSection);
-					});
+					});//end of section loop
 					//add an onclick to the item row that changes the border color
 					$(thisAd).mouseover(function() {
-						$(thisAd).addClass('boxShadow');
+						if (config.browser != 'edge') {	
+							$(thisAd).addClass('boxShadow');
+						} else {//IE needs to just change the <td> class instead of adding a boxshadow
+							$(thisAd).children().addClass('tdHover');
+							console.log(thisAd + ":first-child");
+						}
 					});
 					$(thisAd).mouseleave(function() {
-						$(thisAd).removeClass('boxShadow');
+						if (config.browser != 'edge') {
+							$(thisAd).removeClass('boxShadow');
+						} else {
+							$(thisAd).children().removeClass('tdHover');
+						}
 					});
 
-				});
+				});//end of tableItems loop
 
 			}//end of generateTable();
 
