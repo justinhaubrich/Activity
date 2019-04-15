@@ -22,7 +22,7 @@
 			font-weight: 500;
 			letter-spacing:.10em;
 			text-align:center;
-			color:orange;
+			color:cornflowerblue;
 			text-transform:uppercase;
 			font-size:10pt;
 			user-select:none;
@@ -160,10 +160,16 @@
 			font-family: Roboto, sans-serif;
 			font-weight:500;
 			color:white;
-			padding:5px;
+			padding:2px;
 			background-color:orange;
-				text-transform:uppercase;
-					font-size:10pt;
+			text-transform:uppercase;
+			font-size:10pt;
+			border:2px solid transparent;
+		}
+		.seeMore:hover {
+			background-color:white;
+			color:orange;
+			border: 2px solid orange;	
 		}
         .lightOrange {
             background-color: #FFCF9E;
@@ -220,16 +226,16 @@
 		console.log (document.styleSheets[0]);		
 	}
 	var tableItems = [
-        {"logo":"assets/logo_geico.png","title":"Lorem Ipsum dolor sit amet", "body":"<ul><li>Sed id sodales erat</li><li>Quisque eget imperdiet mi, quis pharetra.</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"Quisque varius quam leo", "body":"<ul><li>Morbi palcet fringilla leom</li><li>Vulputate valet sem finibus tortor</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title":"Donec rhoncus, erat at dapibus", "body":"<ul><li>Lectus felis in Vestibulum</li><li>Nallam egestas quis odio</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"In libero erat, laoreet in egestas quis, lacinia at elda odio.", "body":"<ul><li>Proin pellentesque felis at mi rutrum vehicula.</li><li>Etiam volutpat leo in est rhoncus, quis varius urna dignissim</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Duis porta, enim ut pellentesque sollicitudin, est turpis placerat augue</li><li>Integer pretium metus ut nisl</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},	
-		{"logo":"assets/logo_progressive.png","title":"Etiam id urna nec metus", "body":"<ul><li>Nulla facilisi, cursus nec</li><li>Vestibulum orci dui</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Pellentesque elementum nunc</li><li>Ut ut mollis massa, vel maximus</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"Aenean dolor ante, scelerisque sit", "body":"<ul><li>Etiam volutpat leo in est rhoncus</li><li>quis varius urna</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_geico.png","title" : "Sed a rhoncus orci. Maecenas euismod nisl", "body" : "<ul><li> Proin pellentesque felis</li><li>Pellentesque egestas gravida</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
-		{"logo":"assets/logo_progressive.png","title":"Aenean dolor ante, scelerisque", "body":"<ul><li>lobortis luctus nibh</li><li>Pellentesque habitant morbi</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}
+        {"logo":"https://jhaubrich.com/misc/Activity/assets/logo_geico.png","title":"Lorem Ipsum dolor sit amet", "body":"<ul><li>Sed id sodales erat</li><li>Quisque eget imperdiet mi, quis pharetra.</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_progressive.png","title":"Quisque varius quam leo", "body":"<ul><li>Morbi palcet fringilla leom</li><li>Vulputate valet sem finibus tortor</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_geico.png","title":"Donec rhoncus, erat at dapibus", "body":"<ul><li>Lectus felis in Vestibulum</li><li>Nallam egestas quis odio</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_progressive.png","title":"In libero erat, laoreet in egestas quis, lacinia at elda odio.", "body":"<ul><li>Proin pellentesque felis at mi rutrum vehicula.</li><li>Etiam volutpat leo in est rhoncus, quis varius urna dignissim</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Duis porta, enim ut pellentesque sollicitudin, est turpis placerat augue</li><li>Integer pretium metus ut nisl</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},	
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_progressive.png","title":"Etiam id urna nec metus", "body":"<ul><li>Nulla facilisi, cursus nec</li><li>Vestibulum orci dui</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_geico.png","title" : "Praesent et euismod tortor", "body" : "<ul><li>Pellentesque elementum nunc</li><li>Ut ut mollis massa, vel maximus</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_progressive.png","title":"Aenean dolor ante, scelerisque sit", "body":"<ul><li>Etiam volutpat leo in est rhoncus</li><li>quis varius urna</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_geico.png","title" : "Sed a rhoncus orci. Maecenas euismod nisl", "body" : "<ul><li> Proin pellentesque felis</li><li>Pellentesque egestas gravida</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"},
+		{"logo":"https://jhaubrich.com/misc/Activity/assets/logo_progressive.png","title":"Aenean dolor ante, scelerisque", "body":"<ul><li>lobortis luctus nibh</li><li>Pellentesque habitant morbi</li></ul>", "CTAText":"Go", "CTAText2":"Go Now"}
 	],
 		_tableItemsArray = Object.values(tableItems),
 		_toggleAds = false; 
